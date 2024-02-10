@@ -50,10 +50,10 @@
                     <h3 class="text-primary"><img src="static/img/icon.png" style="height: 50px;width: 50px;margin:4px;"
                             alt="icon"></img>SAFEGUARD</h3>
                 </a>
-               
+
                 <div class="navbar-nav w-100">
                     <a href="overview.html" class="nav-item nav-link "><i class="fa fa-th me-2"></i>Overview</a>
-                    
+
                     <a href="dashboard.html" class="nav-item nav-link "><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="camera.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Camera</a>
@@ -61,7 +61,7 @@
                         Details</a>
                     <a href="incident.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Incidents</a>
                     <a href="admin.html" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Admin</a>
-                   
+
                 </div>
             </nav>
         </div>
@@ -80,7 +80,7 @@
                 </a>
 
                 <div class="navbar-nav align-items-center ms-auto">
-                   
+
                     <div class="form-check form-switch text-dark">
                         <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
                         <label class="form-check-label" for="flexSwitchCheckDefault">Dark mode</label>
@@ -164,79 +164,88 @@
     <!-- ADD new Employees button -->
 
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-lg btn-primary btn-lg-square back-to-top" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-    <i class="bi bi-plus"></i>
-  </button>
+    <button type="button" class="btn btn-lg btn-primary btn-lg-square back-to-top" data-bs-toggle="modal"
+        data-bs-target="#exampleModalToggle">
+        <i class="bi bi-plus"></i>
+    </button>
 
 
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add Employees</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body col-lg-11">
-            <div class="row">
-                <div class="col-5">
-                    <div class="card" style="width: 21rem;">
-                        <div class="card-body m-5">
-                            <h5 class="card-title ">Add Manually</h5>
-                            <span class="card-text"><button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Add</button></span>
-                            
-                            
-                            
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add Employees</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body col-lg-11">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="card" style="width: 21rem;">
+                                <div class="card-body m-5">
+                                    <h5 class="card-title ">Add Manually</h5>
+                                    <span class="card-text"><button class="btn btn-primary"
+                                            data-bs-target="#exampleModalToggle2"
+                                            data-bs-toggle="modal">Add</button></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            <div class="card" style="width: 24rem;">
+                                <div class="card-body m-5">
+                                    <h5 class="card-title ">Upload CSV/XLSX File</h5>
+                                    <span class="card-text"><input type="file" id="csvFileInput" accept=".csv, .xlsx"
+                                            class="btn btn-sm btn-primary "><button class="btn my-2 btn-primary"
+                                            onclick="parseFile()">Add</button></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <div class="card" style="width: 24rem;">
-                        <div class="card-body m-5">
-                          <h5 class="card-title ">Upload CSV File</h5>
-                          <span class="card-text"><input type="file" id="csvFileInput" accept=".csv" class="btn btn-sm btn-primary "><button class="btn my-2 btn-primary" onclick="parseCSV()">Add</button></span>
-                        </div>
-                      </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add Employee Details</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <form>
-                <div class="mb-3">
-                  <label for="exampleInputfname" class="form-label">First Name</label>
-                  <input type="text" class="form-control" required id="exampleInputfname">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputlname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="exampleInputlname">
-                  </div>
-                <div class="mb-3">
-                  <label for="exampleInputphone" class="form-label">Phone Number</label>
-                  <input type="number" class="form-control" required id="exampleInputphone" aria-describedby="phoneHelp">
-                  <div id="phoneHelp" class="form-text">We'll never share your Phone Number with anyone else.</div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    </div>
 
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add Employee Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputempid" class="form-label">Employee ID</label>
+                            <input type="text" class="form-control" required id="exampleInputempid">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputfname" class="form-label">First Name</label>
+                            <input type="text" class="form-control" required id="exampleInputfname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputlname" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="exampleInputlname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputphone" class="form-label">Phone Number</label>
+                            <input type="number" class="form-control" required id="exampleInputphone"
+                                aria-describedby="phoneHelp">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="employee-form" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -248,37 +257,12 @@
     <script src="static/lib/tempusdominus/js/moment.min.js"></script>
     <script src="static/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
 
     <!-- Template Javascript -->
     <script src="static/js/main.js"></script>
-
-    <script>
-        function parseCSV() {
-            var fileInput = document.getElementById('csvFileInput');
-            if (fileInput.files.length > 0) {
-                var file = fileInput.files[0];
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var csvContent = event.target.result;
-                    var rows = csvContent.split('\n');
-                    var data = [];
-                    var headers = rows[0].split(',');
-                    for (var i = 1; i < rows.length; i++) {
-                        var row = rows[i].split(',');
-                        var obj = {};
-                        for (var j = 0; j < headers.length; j++) {
-                            obj[headers[j]] = row[j];
-                        }
-                        data.push(obj);
-                    }
-                    console.log(JSON.stringify(data, null, 4));
-                };
-                reader.readAsText(file);
-            } else {
-                alert('Please select a file.');
-            }
-        }
-    </script>
+    <script src="static/js/employee.js"></script>
 </body>
 
 </html>

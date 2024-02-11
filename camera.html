@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -43,7 +43,8 @@
 <body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -55,18 +56,21 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="overview.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><img src="static/img/icon.png" style="height: 50px;width: 50px;margin:4px;" alt="icon"></img>SAFEGUARD</h3>
+                    <h3 class="text-primary"><img src="static/img/icon.png" style="height: 50px;width: 50px;margin:4px;"
+                            alt="icon"></img>SAFEGUARD</h3>
                 </a>
-               
+
                 <div class="navbar-nav w-100">
                     <a href="overview.html" class="nav-item nav-link "><i class="fa fa-th me-2"></i>Overview</a>
-                    
-                    <a href="dashboard.html" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+
+                    <a href="dashboard.html" class="nav-item nav-link "><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="camera.html" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Camera</a>
-                    <a href="employee.html" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Employee Details</a>
+                    <a href="employee.html" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Employee
+                        Details</a>
                     <a href="incident.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Incidents</a>
                     <a href="admin.html" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Admin</a>
-                   
+
                 </div>
             </nav>
         </div>
@@ -83,17 +87,16 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                
+
                 <div class="navbar-nav align-items-center ms-auto">
-                    
+
                     <div class="form-check form-switch text-dark">
                         <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
                         <label class="form-check-label" for="flexSwitchCheckDefault">Dark mode</label>
-                      </div>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpeg
-" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpeg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Ashvek</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -106,126 +109,150 @@
             </nav>
             <!-- Navbar End -->
 
-<!--Aniket Code-->
-<div class="container-fluid m-4">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open Modal
-</button></div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog  modal-lg" role="document">
-    <div class="modal-content">
-        <!-- Modal header with tabs -->
-        <div class="modal-header">
-            <ul class="nav nav-tabs" id="formTabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link " id="formTab" data-toggle="tab" href="#formContent" role="tab"
-                        aria-controls="formContent" aria-selected="true">Form</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="responseTab" data-toggle="tab" href="#responseContent"
-                        role="tab" aria-controls="responseContent" aria-selected="false">Add restricted area</a>
-                </li>
-            </ul>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <!-- Modal body with tab content -->
-        <div class="modal-body">
-            <div class="tab-content" id="formTabContent">
-                <!-- Form tab content -->
-                <div class="tab-pane fade show active" id="formContent" role="tabpanel"
-                    aria-labelledby="formTab">
-                    <form id="myForm">
-                        <!-- Form fields -->
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name" id="name"
-                                placeholder="Enter name">
+            <!--Aniket Code start-->
+            <div class="container-fluid m-4 ">
+                <button type="button" class="btn btn-primary rounded-pill" data-toggle="modal" data-target="#myModal">
+                    Add Camera
+                </button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog  modal-lg" role="document">
+                    <div class="modal-content">
+                        <!-- Modal header with tabs -->
+                        <div class="modal-header">
+                            <ul class="nav nav-tabs" id="formTabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="formTab" data-toggle="tab" href="#formContent"
+                                        role="tab" aria-controls="formContent" aria-selected="true">Add details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" id="responseTab" data-toggle="tab"
+                                        href="#responseContent" role="tab" aria-controls="responseContent"
+                                        aria-selected="false">Add restricted area</a>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" class="form-control" name="location" id="location"
-                                placeholder="Enter location">
+                        <!-- Modal body with tab content -->
+                        <div class="modal-body">
+                            <div class="tab-content" id="formTabContent">
+                                <!-- Form tab content -->
+                                <div class="tab-pane fade show active" id="formContent" role="tabpanel"
+                                    aria-labelledby="formTab">
+                                    <form id="myForm">
+                                        <!-- Form fields -->
+                                        <div class="form-group mb-3">
+                                            <label for="name">Name</label>
+                                            <input type="text" required class="form-control" name="name" id="name"
+                                                placeholder="Enter name">
+                                        </div>
+                                        <div class="form-group mb-3 ">
+                                            <label for="location">Location</label>
+                                            <input type="text" required class="form-control" name="location"
+                                                id="location" placeholder="Enter location">
+                                        </div>
+                                        <div class="form-group mb-3 ">
+                                            <label for="description">Description</label>
+                                            <input type="text" required class="form-control" name="description"
+                                                id="description" placeholder="Enter description">
+                                        </div>
+                                        <div class="form-group mb-3 ">
+                                            <label for="source">Source</label>
+                                            <input type="text" required class="form-control" name="source" id="source"
+                                                placeholder="Enter source">
+                                        </div>
+                                        <div class="form-group  form-check">
+                                            <input type="checkbox" class="form-check-input" name="helmet" id="helmet">
+                                            <label class="form-check-label" for="helmet">Helmet</label>
+                                        </div>
+                                        <div class="form-group mb-3  form-check">
+                                            <input type="checkbox" class="form-check-input" name="vest" id="vest">
+                                            <label class="form-check-label" for="vest">Vest</label>
+                                        </div>
+                                        <div class="form-group mb-3 ">
+                                            <label for="email_alert">Email Alert</label>
+                                            <input type="email" required class="form-control" name="email_alert"
+                                                id="email_alert" placeholder="Enter email for alert">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" id="submitBtn">Done</button>
+                                    </form>
+                                </div>
+                                <!-- Response tab content -->
+                                <div class="tab-pane fade" id="responseContent" role="tabpanel"
+                                    aria-labelledby="responseTab">
+                                    <!-- Response content -->
+                                    <canvas id="myCanvas"></canvas>
+                                    <div class="points-info"></div><br>
+                                    <button type="button" class="btn btn-primary" id="sendPolygonBtn">Done</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" name="description" id="description"
-                                placeholder="Enter description">
-                        </div>
-                        <div class="form-group">
-                            <label for="source">Source</label>
-                            <input type="text" class="form-control" name="source" id="source"
-                                placeholder="Enter source">
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" name="helmet" id="helmet">
-                            <label class="form-check-label" for="helmet">Helmet</label>
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" name="vest" id="vest">
-                            <label class="form-check-label" for="vest">Vest</label>
-                        </div>
-                        <div class="form-group">
-                            <label for="email_alert">Email Alert</label>
-                            <input type="email" class="form-control" name="email_alert" id="email_alert"
-                                placeholder="Enter email for alert">
-                        </div>
-                        <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
-                    </form>
-                    </form>
-                </div>
-                <!-- Response tab content -->
-                <div class="tab-pane fade" id="responseContent" role="tabpanel"
-                    aria-labelledby="responseTab">
-                    <!-- Response content -->
-                    <canvas id="myCanvas"></canvas>
-                    <div class="points-info"></div>
-                    <button type="button" class="btn btn-primary" id="sendPolygonBtn">Send Polygon
-                        Coordinates</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-</div>
-<!--Aniket Code end-->
+            <!--Aniket Code end-->
 
+            <!--Camera cards start-->
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="card " role="button" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                        style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 id="cardId">Card ID</h5>
+                            <h6 class="card-text" id="cardName">Card Name</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Camera cards end-->
 
-            
-
-
-            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Content End -->
 
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="static/lib/chart/chart.min.js"></script>
+        <script src="static/lib/easing/easing.min.js"></script>
+        <script src="static/lib/waypoints/waypoints.min.js"></script>
+        <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="static/lib/tempusdominus/js/moment.min.js"></script>
+        <script src="static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+        <script src="static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" ></script>
-    <script src="static/lib/chart/chart.min.js" ></script>
-    <script src="static/lib/easing/easing.min.js" ></script>
-    <script src="static/lib/waypoints/waypoints.min.js" ></script>
-    <script src="static/lib/owlcarousel/owl.carousel.min.js" ></script>
-    <script src="static/lib/tempusdominus/js/moment.min.js" ></script>
-    <script src="static/lib/tempusdominus/js/moment-timezone.min.js" ></script>
-    <script src="static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js" ></script>
+        <!-- Template Javascript -->
+        <script src="static/js/main.js" defer></script>
+        <script src="static/js/camera.js" defer></script>
 
-    <!-- Template Javascript -->
-    <script src="static/js/main.js" defer></script>
-    <script src="static/js/camera.js" defer></script>
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-     <!-- Bootstrap JS and dependencies -->
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
 </body>
 
 </html>

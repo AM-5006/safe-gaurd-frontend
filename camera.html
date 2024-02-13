@@ -38,9 +38,11 @@
 
     <!-- Template Stylesheet -->
     <link href="static/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
+    <div id="alertContainer" class="position-fixed fixed-top w-100"></div>
     <div class="container-fluid position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner"
@@ -50,7 +52,6 @@
             </div>
         </div>
         <!-- Spinner End -->
-
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
@@ -96,7 +97,7 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpeg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="..." alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Ashvek</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -111,8 +112,9 @@
 
             <!--Aniket Code start-->
             <div class="container-fluid m-4 ">
-                <button type="button" class="btn btn-primary rounded-pill" data-toggle="modal" data-target="#myModal">
-                    Add Camera
+                <button type="button" class="btn btn-lg  btn-lg-square back-to-top btn-primary" data-toggle="modal"
+                    data-target="#myModal">
+                    <i class="bi bi-plus"></i>
                 </button>
             </div>
             <!-- Modal -->
@@ -125,12 +127,12 @@
                             <ul class="nav nav-tabs" id="formTabs" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="formTab" data-toggle="tab" href="#formContent"
-                                        role="tab" aria-controls="formContent" aria-selected="true">Add details</a>
+                                        role="tab" aria-controls="formContent" aria-selected="true">Camera Details</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link disabled" id="responseTab" data-toggle="tab"
                                         href="#responseContent" role="tab" aria-controls="responseContent"
-                                        aria-selected="false">Add restricted area</a>
+                                        aria-selected="false">Rule Engine</a>
                                 </li>
                             </ul>
                             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
@@ -147,12 +149,12 @@
                                         <div class="form-group mb-3">
                                             <label for="name">Name</label>
                                             <input type="text" required class="form-control" name="name" id="name"
-                                                placeholder="Enter name">
+                                                placeholder="Enter camera name">
                                         </div>
                                         <div class="form-group mb-3 ">
                                             <label for="location">Location</label>
                                             <input type="text" required class="form-control" name="location"
-                                                id="location" placeholder="Enter location">
+                                                id="location" placeholder="Enter camera location">
                                         </div>
                                         <div class="form-group mb-3 ">
                                             <label for="description">Description</label>
@@ -177,7 +179,8 @@
                                             <input type="email" required class="form-control" name="email_alert"
                                                 id="email_alert" placeholder="Enter email for alert">
                                         </div>
-                                        <button type="submit" class="btn btn-primary" id="submitBtn">Done</button>
+                                        <button type="submit" class="btn btn-primary" id="submitBtn"
+                                            href="#responseContent">Submit</button>
                                     </form>
                                 </div>
                                 <!-- Response tab content -->
@@ -186,7 +189,8 @@
                                     <!-- Response content -->
                                     <canvas id="myCanvas"></canvas>
                                     <div class="points-info"></div><br>
-                                    <button type="button" class="btn btn-primary" id="sendPolygonBtn">Done</button>
+                                    <button type="button" class="btn btn-primary" id="sendPolygonBtn"
+                                        data-dismiss="modal" aria-label="Close">Done</button>
                                 </div>
                             </div>
                         </div>
@@ -196,19 +200,10 @@
             <!--Aniket Code end-->
 
             <!--Camera cards start-->
-            <div class="row mt-3">
-                <div class="col">
-                    <div class="card " role="button" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                        style="width: 18rem;">
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 id="cardId">Card ID</h5>
-                            <h6 class="card-text" id="cardName">Card Name</h6>
-                        </div>
-                    </div>
+            <div class="container-fluid d-flex">
+                <div class="row" id="cameraCards">
                 </div>
             </div>
-            <!--Camera cards end-->
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -229,9 +224,10 @@
                     </div>
                 </div>
             </div>
+
+            <!--Camera cards end-->
         </div>
         <!-- Content End -->
-
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

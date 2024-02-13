@@ -72,7 +72,6 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
     event.preventDefault();
     let form = document.getElementById('myForm');
     let formCont = document.getElementById('formTab');
-
     let formData = new FormData(form);
 
     let formObject = {};
@@ -111,17 +110,21 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
         });
 });
 
+
 document.getElementById('sendPolygonBtn').addEventListener('click', function () {
     let polygons = document.querySelector(".points-info").textContent;
     const poly = polygons.split(':');
-    if(poly.length===4 || poly.length===0){
+    console.log(poly);
+    let helmetChecked = document.getElementById('helmet').checked;
+    let vestChecked = document.getElementById('vest').checked;
+    if (poly.length === 4 || poly.length-1 === 0) {
         fetch(`http://127.0.0.1:8000/api/camera/${cam_id}/`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
             },
-            body: JSON.stringify({ polygons: polygons })
+            body: JSON.stringify({ polygons: polygons, helmet: helmetChecked, vest: vestChecked })
         })
             .then(response => response.json())
             .then(data => {
@@ -132,9 +135,8 @@ document.getElementById('sendPolygonBtn').addEventListener('click', function () 
                 document.getElementById("alertContainer").appendChild(createAlert("Error sending polygon coordinates", "danger"));
             });
         fetchDataForCards();
-    }else{
-        event.preventDefault();
-        document.getElementById("alertContainer").appendChild(createAlert("Please select 4 coordinates only", "danger"));
+    } else {
+        console.log('Must select 4 points only');
     }
 });
 
@@ -190,59 +192,59 @@ function displayCards(data) {
 
         const card = document.createElement("div");
         card.innerHTML = `
-            <div class="card" style="width:18rem;margin:2rem;">
-                <img src='http://127.0.0.1:8000${item.rtsp_frame}' style="height: 200px; object-fit: cover;"  class="card-img-top position-relative" alt="Camera Image">
-                <div class="card-body">
-                    <h6 class="card-text">ID: ${item.id}</h6>
-                    <h5 class="card-title">${item.name}</h5>
-                </div>
-                <!-- Cross icon -->
-                <button type="button" class="btn position-absolute bi-trash btn-sm text-danger top-0 end-0" aria-label="Close" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        <div class="card text-center" type="button" style="width:18rem;margin:2rem;" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+            <img src='http://127.0.0.1:8000${item.rtsp_frame}' style="height: 200px; object-fit: cover;" class="card-img-top position-relative" alt="Camera Image">
+            <div class="card-body">
+                <h6 class="card-text">ID: ${item.id}</h6>
+                <h5 class="card-title">${item.name}</h5>
             </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h6>Are you sure you want to remove this camera? This action cannot be undone.</h6>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary cardDelete" data-bs-dismiss="modal">Yes</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+            <!-- Cross icon -->
+            <button type="button" class="btn position-absolute bi-trash btn-sm text-danger top-0 end-0" aria-label="Close" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        </div>`;
 
         cardDiv.appendChild(card);
         container.appendChild(cardDiv);
-
-        card.querySelector('.cardDelete').addEventListener('click', function () {
-            fetch(`http://127.0.0.1:8000/api/camera/${item.id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    document.getElementById("alertContainer").appendChild(createAlert("Camera deleted successfully", "success"));
-                    cardDiv.remove();
-                    fetchDataForCards();
-                })
-                .catch(error => {
-                    document.getElementById("alertContainer").appendChild(createAlert("Error deleting camera", "danger"));
-                });
+        
+        card.querySelector('.bi-trash').addEventListener('click', function () {
+            event.stopPropagation();
+            $('#exampleModal').modal('show');
+            document.querySelector('.cardDelete').addEventListener('click', function () {
+                deleteCamera(item.id);
+            });
         });
+
+        card.querySelector('.card').addEventListener('click', function () {
+            $('#exampleModal4').modal('show');
+            const cameraStream = document.getElementById('cameraStream');
+            const header = document.getElementById('streaModalLabel');
+            header.innerText = `${item.id}: ${item.name}, ${item.location}`;
+            cameraStream.src = `http://127.0.0.1:8000/api/camera_stream/${item.id}/`;
+        });
+
     });
+}
+
+function deleteCamera(id) {
+    fetch(`http://127.0.0.1:8000/api/camera/${id}/`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                console.log(response);
+                throw new Error('Network response was not ok ');
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById("alertContainer").appendChild(createAlert("Camera deleted successfully", "success"));
+            fetchDataForCards();
+        })
+        .catch(error => {
+            console.log(error);
+            document.getElementById("alertContainer").appendChild(createAlert("Error deleting camera", "danger"));
+        });
 }

@@ -97,7 +97,7 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="..." alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Ashvek</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -120,7 +120,7 @@
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog  modal-lg" role="document">
+                <div class="modal-dialog  modal-xl" role="document">
                     <div class="modal-content">
                         <!-- Modal header with tabs -->
                         <div class="modal-header">
@@ -166,14 +166,6 @@
                                             <input type="text" required class="form-control" name="source" id="source"
                                                 placeholder="Enter source">
                                         </div>
-                                        <div class="form-group  form-check">
-                                            <input type="checkbox" class="form-check-input" name="helmet" id="helmet">
-                                            <label class="form-check-label" for="helmet">Helmet</label>
-                                        </div>
-                                        <div class="form-group mb-3  form-check">
-                                            <input type="checkbox" class="form-check-input" name="vest" id="vest">
-                                            <label class="form-check-label" for="vest">Vest</label>
-                                        </div>
                                         <div class="form-group mb-3 ">
                                             <label for="email_alert">Email Alert</label>
                                             <input type="email" required class="form-control" name="email_alert"
@@ -186,11 +178,42 @@
                                 <!-- Response tab content -->
                                 <div class="tab-pane fade" id="responseContent" role="tabpanel"
                                     aria-labelledby="responseTab">
-                                    <!-- Response content -->
-                                    <canvas id="myCanvas"></canvas>
-                                    <div class="points-info"></div><br>
-                                    <button type="button" class="btn btn-primary" id="sendPolygonBtn"
-                                        data-dismiss="modal" aria-label="Close">Done</button>
+                                    <div class="container-fluid d-flex mt-4">
+                                        <div class="container-fluid">
+                                            <div
+                                                class="container-fluid d-flex justify-content-center align-items-center">
+                                                <div class="form-group form-check m-3">
+                                                    <input type="checkbox" class="form-check-input" name="helmet"
+                                                        id="helmet">
+                                                    <label class="form-check-label" for="helmet">
+                                                        <h6>HELMET</h6>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group form-check m-3">
+                                                    <input type="checkbox" class="form-check-input" name="vest"
+                                                        id="vest">
+                                                    <label class="form-check-label" for="vest">
+                                                        <h6>VEST</h6>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div
+                                                class="container-fluid d-flex justify-content-evenly align-items-center">
+                                                <span><strong>Polygon : </strong></span>
+                                                <div class="points-info"></div>
+                                            </div><br><br>
+                                            <div class="button text-center">
+                                                <button type="button" class="w-25 top-50 btn btn-primary"
+                                                    id="sendPolygonBtn" data-dismiss="modal"
+                                                    aria-label="Close">Done</button>
+                                            </div>
+                                        </div>
+                                        <!-- Response content -->
+                                        <canvas id="myCanvas"></canvas>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -199,32 +222,51 @@
             </div>
             <!--Aniket Code end-->
 
-            <!--Camera cards start-->
-            <div class="container-fluid d-flex">
-                <div class="row" id="cameraCards">
-                </div>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <!--delete Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi-exclamation-triangle-fill"></i> Warning!!</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <h6>Are you sure you want to remove this camera?</h6>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary cardDelete"
+                                data-bs-dismiss="modal">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!--stream modal-->
+            <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="streaModalLabel"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img id="cameraStream" src="" alt="Image" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            <button type="button" class="btn position-absolute bi-fullscreen btn-sm text-light bottom-0 end-0" aria-label="Fullscreen" style="background-color: rgba(0, 0, 0, 0.5);"></button>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Camera cards start-->
+            <div class="container-fluid d-flex">
+                <div class="row" id="cameraCards">
+                </div>
+            </div>
             <!--Camera cards end-->
         </div>
         <!-- Content End -->

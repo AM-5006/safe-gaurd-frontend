@@ -28,3 +28,4 @@
     });   
 })(jQuery);
 
+document.getElementById("userlogged").textContent = localStorage.getItem('User');

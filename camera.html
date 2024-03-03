@@ -66,11 +66,11 @@
 
                     <a href="dashboard.html" class="nav-item nav-link "><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="camera.html" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Camera</a>
+                    <a href="camera.html" class="nav-item nav-link active"><i class="fa fa-camera me-2"></i>Camera</a>
                     <a href="employee.html" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Employee
                         Details</a>
                     <a href="incident.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Incidents</a>
-                    <a href="admin.html" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Admin</a>
+                    <a href="http://127.0.0.1:8000/admin" target="_blank" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Admin</a>
 
                 </div>
             </nav>
@@ -90,18 +90,12 @@
                 </a>
 
                 <div class="navbar-nav align-items-center ms-auto">
-
-                    <div class="form-check form-switch text-dark">
-                        <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Dark mode</label>
-                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Ashvek</span>
+                            <img class="rounded-circle me-lg-2" src="static/img/admin.png" alt="" style="width: 40px; height: 40px;">
+                            <span id="userlogged" class="d-none d-lg-inline-flex"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
@@ -254,7 +248,7 @@
                         </div>
                         <div class="modal-body">
                             <img id="cameraStream" src="" alt="Image" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                            <button type="button" class="btn position-absolute bi-fullscreen btn-sm text-light bottom-0 end-0" aria-label="Fullscreen" style="background-color: rgba(0, 0, 0, 0.5);"></button>
+                            <button type="button" class="btn position-absolute bi-fullscreen btn-sm text-light bottom-0 end-0 bg-secondary" aria-label="Fullscreen" ></button>
                         </div>
                         <div class="modal-footer">
                         </div>

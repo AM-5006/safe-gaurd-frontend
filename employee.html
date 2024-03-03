@@ -35,14 +35,15 @@
     <div class="container-fluid position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
-        <!-- Spinner End -->
-
-
+    </div>
+    <!-- Spinner End -->
+    
+    
+    <div id="alertContainer" class="position-fixed fixed-top w-100"></div>
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
@@ -56,11 +57,11 @@
 
                     <a href="dashboard.html" class="nav-item nav-link "><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="camera.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Camera</a>
+                    <a href="camera.html" class="nav-item nav-link"><i class="fa fa-camera me-2"></i>Camera</a>
                     <a href="employee.html" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Employee
                         Details</a>
                     <a href="incident.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Incidents</a>
-                    <a href="admin.html" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Admin</a>
+                    <a href="http://127.0.0.1:8000/admin" target="_blank" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Admin</a>
 
                 </div>
             </nav>
@@ -69,7 +70,7 @@
 
 
         <!-- Content Start -->
-        <div class="content">
+        <div class="content" >
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="overview.html" class="navbar-brand d-flex d-lg-none me-4">
@@ -80,19 +81,12 @@
                 </a>
 
                 <div class="navbar-nav align-items-center ms-auto">
-
-                    <div class="form-check form-switch text-dark">
-                        <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Dark mode</label>
-                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="static/img/user.jpeg
-" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Ashvek</span>
+                            <img class="rounded-circle me-lg-2" src="static/img/admin.png" alt="" style="width: 40px; height: 40px;">
+                            <span id="userlogged" class="d-none d-lg-inline-flex"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
@@ -103,62 +97,35 @@
 
 
             <!-- Table Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-12">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h4 class="mb-4 text-center">Employee Details</h4>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">First Name</th>
-                                            <th scope="col">Last Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Edit Record</th>
-                                            <th scope="col">Remove Record</th>
-                            </div>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>jhon@email.com</td>
-                                    <td><button type="button" class="btn btn-secondary">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger">Remove</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>mark@email.com</td>
-                                    <td><button type="button" class="btn btn-secondary">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger">Remove</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>jacob@email.com</td>
-                                    <td><button type="button" class="btn btn-secondary">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger">Remove</button></td>
-                                </tr>
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="table-responsive px-5">
+                <h3 class="text-center border-bottom border-dark border-2  mb-4">EMPLOYEE DETAILS</h3>
+                <table class="table text-dark border border-dark border-2" >
+                    <thead>
+                        <tr class="table-dark">
+                            <th scope="col-2">ID</th>
+                            <th scope="col-2">First Name</th>
+                            <th scope="col-2">Last Name</th>
+                            <th scope="col-2">Phone Number</th>
+                            <th scope="col" colspan="3"></th> <!-- Empty column to fill the space -->
+                        </tr>
+                    </thead>
+                    
+                    
+                    <tbody class="table-group-divider">
+                        
+                </tbody>
+            </table>
         </div>
         <!-- Table End -->
-
-
-
+        
+        
     </div>
+</div>
+<div id="paginationContainer" >
+</div>
+    
     <!-- Content End -->
+    
 
 
     <!-- ADD new Employees button -->
@@ -234,18 +201,57 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputphone" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" required id="exampleInputphone"
+                            <input  class="form-control" maxlength="10" required id="exampleInputphone"
                                 aria-describedby="phoneHelp">
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="employee-form" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="employee-form" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Submit</button>
                     </form>
 
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="exampleModalEdit" aria-hidden="true" aria-labelledby="exampleModalEdit"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalEdit">Edit Employee</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="editForm">
+                    <form>
+                        <div class="mb-3">
+                            <label for="editempid" class="form-label">Employee ID</label>
+                            <input type="text" class="form-control" required id="editempid" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editfname" class="form-label">First Name</label>
+                            <input type="text" class="form-control" required id="editfname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editlname" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="editlname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editphone" class="form-label">Phone Number</label>
+                            <input type="number" class="form-control" required id="editphone"
+                                aria-describedby="phoneHelp">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="edit-form" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEdit">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

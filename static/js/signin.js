@@ -20,6 +20,7 @@ document.querySelector('.btn.btn-primary').addEventListener('click', function (e
         .then(data => {
             let accessToken = data.access;
             localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('User', username);
             window.location.href = "http://127.0.0.1:5500/overview.html"
         })
         .catch((error) => {

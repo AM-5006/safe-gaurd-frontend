@@ -117,7 +117,7 @@ document.getElementById('sendPolygonBtn').addEventListener('click', function () 
     console.log(poly);
     let helmetChecked = document.getElementById('helmet').checked;
     let vestChecked = document.getElementById('vest').checked;
-    if (poly.length === 4 || poly.length-1 === 0) {
+    if (poly.length === 4 || poly.length - 1 === 0) {
         fetch(`http://127.0.0.1:8000/api/camera/${cam_id}/`, {
             method: 'PATCH',
             headers: {
@@ -204,7 +204,7 @@ function displayCards(data) {
 
         cardDiv.appendChild(card);
         container.appendChild(cardDiv);
-        
+
         card.querySelector('.bi-trash').addEventListener('click', function () {
             event.stopPropagation();
             $('#exampleModal').modal('show');
@@ -248,3 +248,17 @@ function deleteCamera(id) {
             document.getElementById("alertContainer").appendChild(createAlert("Error deleting camera", "danger"));
         });
 }
+
+
+document.getElementById('exampleModal4').addEventListener('hidden.bs.modal', function (e) {
+    fetch('http://127.0.0.1:8000/api/camera_stream/1/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ stop_stream: true }),
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => console.error('Error:', error));
+});
